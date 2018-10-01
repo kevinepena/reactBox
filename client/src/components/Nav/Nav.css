@@ -1,0 +1,57 @@
+
+/* NAVIGATION */
+
+
+
+.nav-link {
+  position: relative;
+  transition: all 0.5s;
+}
+
+.nav-item {
+  /* font-family: "Kanit", sans-serif !important; */
+  font-size: 0.8em;
+}
+
+
+.nav-link:hover,
+.btn:hover {
+  z-index: 1;
+   color:#90C2E7;
+   border:0
+
+}
+
+.nav-link:hover:after {
+  z-index: -10;
+  width: 100%;
+  font-weight: 900;
+  opacity: 1;
+}
+
+.btn {
+   color: #4E8098;
+   font-size: 1.5vh;
+   font-weight: 450;
+   letter-spacing: .01vw;
+   border: 0;
+
+ }
+
+.slogo {
+  width: 30px;
+}
+
+.slogo:hover {
+  cursor: pointer;
+}
+
+/* animation: nav-logo-spin infinite 20s linear; */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

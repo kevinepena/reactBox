@@ -4,7 +4,6 @@ const path = require("path");
 const routes = require("./routes");
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-var db = require("./models");
 
 
 require("dotenv").config()

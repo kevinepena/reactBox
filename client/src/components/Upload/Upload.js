@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PDF from "react-pdf";
+import PDF from "../PDF";
 import "./Upload.css";
 // import { constants } from "fs";
 

@@ -196,7 +196,7 @@ class Upload extends Component {
 
         if (filesSent.length > 0) {
 
-            filesObj.map((file) => {
+            filesObj.forEach((file) => {
                 filler.push(file.preview);
             })
             $files = filler;

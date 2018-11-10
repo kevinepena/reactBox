@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const controller = require("../../controllers/auth");
-require("dotenv").load()
+// require("dotenv").load()
 
 
 // Auth related frameworks

@@ -1,7 +1,7 @@
 var BoxSDK = require('box-node-sdk');
 var axios = require('axios');
 var fs = require("fs");
-require("dotenv").load();
+// require("dotenv").load();
 var client = BoxSDK.getBasicClient(process.env.BOX_TOKEN);
 
 

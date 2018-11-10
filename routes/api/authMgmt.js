@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const controller = require("../../controllers/authMgmtController");
-require("dotenv").load()
+// require("dotenv").load()
 
 // Auth related frameworks
 const jwt = require("express-jwt");

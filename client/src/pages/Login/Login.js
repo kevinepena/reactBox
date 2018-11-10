@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import "./Login.css";
 
 export default class Login extends Component {
@@ -15,10 +14,6 @@ export default class Login extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    componentDidMount() {
-
     }
 
     handleChange(e) {

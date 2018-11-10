@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
-import Pattern from "./pattern.png";
+// import Pattern from "./pattern.png";
 
 class Home extends Component {
 

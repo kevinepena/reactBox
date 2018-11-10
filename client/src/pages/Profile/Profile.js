@@ -65,7 +65,7 @@ class Profile extends Component {
 
   render() {
     const { profile } = this.state;
-    const { nickname, username } = profile;
+    // const { nickname, username } = profile;
     console.log(profile);
 
     return (

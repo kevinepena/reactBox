@@ -6,9 +6,9 @@ import 'react-pdf/src/Page/AnnotationLayer.css';
 
 // import './Test.less';
 
-import AnnotationOptions from './AnnotationOptions';
-import LayerOptions from './LayerOptions';
-import LoadingOptions from './LoadingOptions';
+// import AnnotationOptions from './AnnotationOptions';
+// import LayerOptions from './LayerOptions';
+// import LoadingOptions from './LoadingOptions';
 import ViewOptions from './ViewOptions';
 
 import { dataURItoBlob } from './shared/utils';
@@ -144,18 +144,17 @@ export default class Test extends PureComponent {
         const {
             displayAll,
             externalLinkTarget,
-            file: fileState,
             numPages,
-            pageHeight,
+            // pageHeight,
             pageNumber,
             pageScale,
             pageWidth,
-            passMethod,
+            // passMethod,
             render,
-            renderAnnotations,
-            renderInteractiveForms,
+            // renderAnnotations,
+            // renderInteractiveForms,
             renderMode,
-            renderTextLayer,
+            // renderTextLayer,
             rotate,
         } = this.state;
         const { file, pageProps } = this;

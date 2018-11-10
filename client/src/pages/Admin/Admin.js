@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Admin.css"
-const cryptoRandomString = require('crypto-random-string');
+// const cryptoRandomString = require('crypto-random-string');
 
 class Admin extends Component {
 
@@ -187,7 +187,7 @@ class Admin extends Component {
 
                 dirty = dirty.replace(/\)/g, '');
                 dirty = dirty.replace(/\(/g, '');
-                dirty = dirty.replace(/\-/g, '');
+                dirty = dirty.replace(/-/g, '');
                 dirty = dirty.replace(/\s/g, '');
 
 
@@ -196,7 +196,7 @@ class Admin extends Component {
                 this.setState({ newUser });
 
 
-                if (!(dirty.length === 10) || !(parseInt(dirty))) {
+                if (!(dirty.length === 10) || !(parseInt(dirty, 10))) {
                     this.setState({ invalidN: true, createUser: false });
 
                 } else {
@@ -208,9 +208,9 @@ class Admin extends Component {
                 let hasNumber = /\d/;
                 if (newUser[key].length < 8) {
                     this.setState({ invalidP: true, createUser: false});
-                } else if (newUser[key] == (newUser[key].toLowerCase())) {
+                } else if (newUser[key] === (newUser[key].toLowerCase())) {
                     this.setState({ invalidP: true, createUser: false });
-                } else if (newUser[key] == newUser[key].toUpperCase()) {
+                } else if (newUser[key] === newUser[key].toUpperCase()) {
                     this.setState({ invalidP: true, createUser: false });
                 } else if (!hasNumber.test(newUser[key])) {
                     this.setState({ invalidP: true, createUser: false });
@@ -230,7 +230,7 @@ class Admin extends Component {
     render() {
         const { newUser, profile, users } = this.state;
 
-        const { email, username, password, phone_number, roles, permissions } = newUser;
+        const { email, username, password, phone_number, roles } = newUser;
 
         let usersArr = null;
 
@@ -278,7 +278,7 @@ class Admin extends Component {
                         <div className="row" id="admin">
 
                             <div className="col-sm-12 col-md-3 col-lg-3">
-                                <img src={profile.picture} style={{ margin: "15px", borderRadius: "100px" }} />
+                                <img src={profile.picture} style={{ margin: "15px", borderRadius: "100px" }} alt="" />
                             </div>
                             <div className="col-sm-12 col-md-9 col-lg-9">
                                 <form autoComplete="new-password" style={{ padding: "5px 0 15px 0" }}>

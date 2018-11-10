@@ -30,8 +30,8 @@ class Nav extends Component {
   render() {
     const loggedIn = this.props.auth.isAuthenticated();
     const admin = this.props.auth.userHasScopes(["scope:admin"]);
-    const homeLocation = "/";
-    const location = document.location.pathname;
+    // const homeLocation = "/";
+    // const location = document.location.pathname;
 
     return (
 

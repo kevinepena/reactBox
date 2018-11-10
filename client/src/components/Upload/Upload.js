@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PDF from "../PDF";
+import PDF from "react-pdf";
 import "./Upload.css";
 // import { constants } from "fs";
 
@@ -159,7 +159,7 @@ class Upload extends Component {
     formSubmit(e) {
         e.preventDefault();
 
-        let frmData = new FormData();
+        // let frmData = new FormData();
 
         // frmData = frmData.append(img);
 
@@ -196,7 +196,7 @@ class Upload extends Component {
 
         if (filesSent.length > 0) {
 
-            filesObj.map((file, index) => {
+            filesObj.map((file) => {
                 filler.push(file.preview);
             })
             $files = filler;

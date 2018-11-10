@@ -2,11 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 export default class ViewOptions extends PureComponent {
-    onRenderModeChange = (event) => {
-        const { setState } = this.props;
-
-        setState({ renderMode: event.target.value });
-    }
 
     onDisplayAllChange = (event) => {
         const { setState } = this.props;
@@ -99,7 +94,6 @@ export default class ViewOptions extends PureComponent {
             pageHeight,
             pageScale,
             pageWidth,
-            renderMode,
             rotate,
         } = this.props;
 
@@ -277,7 +271,6 @@ ViewOptions.propTypes = {
     pageHeight: PropTypes.number,
     pageScale: PropTypes.number,
     pageWidth: PropTypes.number,
-    renderMode: PropTypes.oneOf(['canvas', 'svg']),
     rotate: PropTypes.number,
     setState: PropTypes.func.isRequired,
 };

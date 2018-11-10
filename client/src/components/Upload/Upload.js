@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PDF from "../PDF";
+import Pdf from "../Pdf";
 import "./Upload.css";
 // import { constants } from "fs";
 
@@ -148,7 +148,7 @@ class Upload extends Component {
             filesSent: [...this.state.filesSent, file],
             filesObj: [...this.state.filesObj, {
                 file: file,
-                preview: (<PDF file={file} />)
+                preview: (<Pdf file={file} />)
             }]
         })
 

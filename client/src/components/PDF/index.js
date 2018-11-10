@@ -1,1 +1,1 @@
-export { default } from "./PDF";
+export { default } from "./Pdf";

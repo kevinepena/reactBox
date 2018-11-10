@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Box from "../../components/Box";
 import axios from "axios";
+import Upload from "../../components/Upload"
 import "./Profile.css";
 
 
@@ -64,13 +65,18 @@ class Profile extends Component {
 
   render() {
     const { profile } = this.state;
+    const { nickname, username } = profile;
+    console.log(profile);
 
     return (
       <section className="container fluid">
         <div id='profile' className="col-sm-12 col-md-12 col-lg-8">
           {/* <img src={profile.picture} alt="" /> */}
-          <h1>{profile.nickname}</h1>
+          {/* <h1>{profile.nickname}</h1> */}
+          {/* {profile.nickname ? profile.nickname.charAt(0).toUpperCase() + profile.nickname.slice(1) : profile.username.charAt(0).toUpperCase() + profile.username.slice(1)} */}
+
           <Box ID={this.state.ID} auth={this.props.auth} />
+          <Upload auth={this.props.auth} />
         </div>
       </section>
     )

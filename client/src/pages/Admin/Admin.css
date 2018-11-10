@@ -1,0 +1,114 @@
+.user {
+    margin: 15px;
+}
+
+  /* Each item in our grid will contain numbers */
+  .item {
+    /* We center the contents of these items. You can also do this with flexbox too! */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid rgba(0, 0, 0, 0.03);
+    border-radius: 3px;
+    font-size: 35px;
+    background-color: #F3D34A; /* best colour */
+    grid-template-columns: repeat(1, 2fr 3fr 1fr 1fr);
+    font-size: 20px;
+    margin-bottom: 15px;
+    grid-gap: 15px;
+  }
+  
+  .item p {
+    margin: 0 0 5px 0;
+  }
+
+  /* .container {
+    display: grid;
+    grid-gap: 20px;
+    border: 10px solid var(--yellow);
+    grid-template-columns: repeat(auto-fit, 150px)
+  } */
+
+  .email {
+      color: rgb(21, 150, 255);
+  }
+
+  .nameString {
+      overflow: auto;
+  }
+
+#admin {
+    margin: 15px auto;
+    background-color: rgb(245,245,245);
+    margin-top: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.customers {
+    padding: 0 15px 15px 15px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    margin: 15px 5px;
+    background-color: white;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s 
+}
+
+select {
+    width: 100%;
+    margin: 5px 5px;
+    background-color: white;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+
+#usersubmit {
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+}
+
+label.hide {
+    transition: all .2s;
+    position: absolute;
+    bottom: 23px;
+    font-size: 10px;
+    height: 7px;
+    padding-left: 15px;
+    z-index: 5;
+}
+
+label.slide {
+    transition: all .2s;
+    position: absolute;
+    bottom: 0px;
+    font-size: 10px;
+    height: 7px;
+    padding-left: 15px;
+}
+
+label.noselect {
+    cursor: text;
+}
+
+
+
+
+@keyframes slideToTop {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(-30px);
+    }
+  }

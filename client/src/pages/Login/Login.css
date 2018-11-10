@@ -1,0 +1,20 @@
+#login {
+    margin: 30vh auto 0 auto;
+    padding: 15px;
+    background-color: rgb(245,245,245);
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+}
+.hi2 {
+        border: 2px solid var(--danger) !important;
+}
+
+#loginsubmit {
+    float: right;
+}
+
+.alert-text {
+    color: var(--danger);
+    position: absolute;
+    top: 10px;
+}

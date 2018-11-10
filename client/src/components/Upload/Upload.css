@@ -1,0 +1,80 @@
+[hidden] {
+    display: none !important;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    padding: 10px;
+    border: 1px solid #1c224f;
+    border-radius: 10px;
+    background-color: white;
+    /* color: white;
+    display: inline-block; */
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    /* background-color: red; */
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+	pointer-events: none;
+}
+
+.pdf-links {
+    display: none;
+}
+
+/* ffd5ed cool pink */
+
+.hi {
+    border: 1px solid #F3D34A !important;
+}
+
+#uploadFilesBtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+}
+
+#drop-area {
+    border: 1px dashed gray;
+    padding: 30px;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.preview {
+    display: inline;
+    padding: 10px;
+    background-color: whitesmoke;
+
+}
+
+.previewpic {
+    object-fit: contain;
+    transition: ease-in-out .5s;
+    width: 200px;
+    height: 200px;
+    background-color: whitesmoke;
+    transform: scale(1);
+    margin: 15px 0;
+}
+
+.previewpic:hover {
+    transition: ease-in-out .5s;
+    transform: scale(3);
+    z-index: 9999;
+}

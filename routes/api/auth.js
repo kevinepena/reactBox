@@ -34,4 +34,10 @@ router
     .route("/")
     .get(checkJwt, checkAdmin, controller.getToken);
 
+router.route("/getusers")
+    .get(checkJwt, checkAdmin, controller.getUsers);
+
+    router.route("/createuser")
+    .post(checkJwt, controller.createUser);
+
 module.exports = router;

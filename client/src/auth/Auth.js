@@ -15,6 +15,7 @@ export default class Auth {
     responseType: 'token id_token',
     scope: 'openid profile',
     audience: 'https://bookkeeping',
+    grant_type: 'http://auth0.com/oauth/grant-type/password-realm'
   });
 
   userProfile;
@@ -54,6 +55,10 @@ export default class Auth {
         this.userProfile = profile;
       }
 
+      if (err) {
+        return err;
+      }
+
       cb(err, profile);
     });
   }
@@ -89,10 +94,17 @@ export default class Auth {
     history.replace('/');
   }
 
-  login() {
-    this.auth0.authorize({
-
-    });
+  login(u, p, cb) {
+    this.auth0.login({
+      realm: "Username-Password-Authentication",
+      username: u,
+      password: p
+    }, (err, result) => {
+      if (err) {
+        cb(err, result);
+        return (err);
+      }
+    })
   }
 
   logout() {

@@ -13,7 +13,14 @@ module.exports = {
         
         request(options, function (error, response, body) {
             if (error) throw new Error(error);
-            res.json(body);
+
+            // console.log(body);
+            // console.log(body.access_token);
+            // console.log(body.expires_at);
+
+            // console.log('yo')
+            
+            // res.cookie("tkn", body.access_token, {expire: new Date() + body.expires_at}).send("set");
         });
     },
     login: function (req, res) {

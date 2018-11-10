@@ -1,26 +1,64 @@
 var request = require("request");
 require("dotenv").load();
+const axios = require('axios');
 
 // Defining methods for the booksController
 module.exports = {
     getToken: function (req, res) {
 
-        var options = {
-            method: 'POST',
-            url: 'https://surreality.auth0.com/oauth/token',
-            headers: { 'content-type': 'application/json' },
-            body: `{"client_id":"${process.env.AUTH0_CLIENTID}","client_secret":"${process.env.AUTH0_SECRET}","audience":"https://surreality.auth0.com/api/v2/","grant_type":"client_credentials"}`
-        };
+        const tkn = req.cookies['tkn'];
 
-        request(options, function (error, response, body) {
-            if (error) throw new Error(error);
+        if (!tkn) {
+            var options = {
+                method: 'POST',
+                url: 'https://surreality.auth0.com/oauth/token',
+                headers: { 'content-type': 'application/json' },
+                body: `{"client_id":"${process.env.AUTH0_CLIENTID}","client_secret":"${process.env.AUTH0_SECRET}","audience":"https://surreality.auth0.com/api/v2/","grant_type":"client_credentials"}`
+            };
 
-            res.json(body);
-
-        });
+            request(options, function (error, response, body) {
+                if (error) throw new Error(error);
+                const Token = JSON.parse(body);
+                res.cookie("tkn", Token.access_token, {
+                    maxAge: Token.expires_in * 12,
+                    httpOnly: true,
+                    sameSite: true,
+                    // path: 'api/auth'
+                    // secure: true  ONLY FOR SECURE HTTPS - PRODUCTION ONLY
+                }).send("new tkn");
+            });
+        } else {
+            res.json("old tkn");
+        }
     },
-    login: function (req, res) {
+    getUsers: function (req, res) {
+        const tkn = req.cookies['tkn'];
 
+        if (!tkn) res.json('No Token Found');
+
+        const headers = { 'Authorization': `Bearer ${tkn}` }
+        axios.get("https://surreality.auth0.com/api/v2/users", { headers })
+            .then(users => {
+                res.json(users.data)
+            })
+            .catch(err => {
+                res.json(err)
+            });
+    },
+    createUser: function (req, res) {
+        const tkn = req.cookies['tkn'];
+
+        const headers = {
+            'Authorization': `Bearer ${tkn}`,
+            'Content-Type': 'application/json'
+        }
+        axios.post('https://surreality.auth0.com/api/v2/users', JSON.stringify(req.body.authUser), { headers })
+            .then(resp => {
+                res.json(resp.data);
+            })
+            .catch(err => {
+                res.json(err);
+            });
     }
     // findById: function (req, res) {
     //   db.Article

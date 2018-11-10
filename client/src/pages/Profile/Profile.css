@@ -1,6 +1,9 @@
 #profile {
-    background-color: whitesmoke;
-    position: relative;
-    margin: 0 auto;
+    margin: 15px auto;
+    background-color: rgb(245,245,245);
+    margin-top: 15px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
 }
 

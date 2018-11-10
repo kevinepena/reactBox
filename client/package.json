@@ -6,6 +6,7 @@
   "dependencies": {
     "auth0-js": "^9.7.3",
     "axios": "^0.18.0",
+    "crypto-random-string": "^1.0.0",
     "history": "^4.7.2",
     "make-event-props": "^1.1.0",
     "merge-class-names": "^1.1.1",
@@ -15,6 +16,7 @@
     "react-bootstrap": "^0.32.3",
     "react-dom": "^16.4.2",
     "react-dropzone": "^5.1.1",
+    "react-motion": "^0.5.2",
     "react-pdf": "^3.0.5",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5"

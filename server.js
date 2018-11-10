@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const routes = require("./routes");
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 var db = require("./models");
 
 
@@ -22,6 +23,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 // This allows us to serve files out of the client/build folder
 app.use(express.static("client/build"));

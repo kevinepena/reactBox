@@ -20,7 +20,6 @@ class Nav extends Component {
   // checkPage() {
   //   const homeLocation = "/";
   //   const location = document.location.pathname;
-
   //   if (location !== homeLocation) {
   //     console.log(`This is your Route location: ${location}`);
   //   } else {
@@ -36,22 +35,26 @@ class Nav extends Component {
 
     return (
 
-      <nav className="nav navbar">
-        <img className="slogo" src="assets/images/surrealitylogo.png" alt="logo" />
+      <nav className={this.props.nav ? "nav nav-on" : "nav"}>
+        <Link to="/">
+          <img className={this.props.nav ? "slogo slogo-on" : "slogo"} src="assets/images/surrealitylogoyellow.png" alt="logo" />
+          <h1 id="logoname">urreality</h1>
+        </Link>
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item nav-link">
-            {location === homeLocation ? (
-              ""
-            ) : (
-                <Link to="/">
-                  <button className="btn">
-                    Home
-                    </button>
-                </Link>
-              )}
+          {/* {location === homeLocation ? (
+            ""
+          ) : (
+              <li className="li-item">
+                <Link className="nav-item nav-link" to="/">
+
+                  Home
+
+              </Link>
+              </li>
+            )} */}
 
 
-            {/* {loggedIn && !admin ? (
+          {/* {loggedIn && !admin ? (
               <Link to="/box">
                 <button className="btn">Upload Files</button>
               </Link>
@@ -59,28 +62,40 @@ class Nav extends Component {
                 ""
               )} */}
 
-            {loggedIn && admin ? (
-              <Link to="/admin">
-                <button className="btn">Manage</button>
+          {loggedIn && admin ? (
+            <li className="li-item">
+
+              <Link className="nav-item nav-link" to="/admin">
+                Manage
               </Link>
-            ) : ""}
+            </li>
+          ) : ""}
 
-            {loggedIn ?
-              <Link to="/profile">
-                <button className="btn">Profile&nbsp;</button>
-              </Link> : ""}
+          {loggedIn ?
+            <li className="li-item">
+
+              <Link className="nav-item nav-link" to="/profile">
+                Profile
+              </Link>
+            </li>
+            : ""}
 
 
-            {!loggedIn ? (
-              <button className="btn btn-login" onClick={this.props.auth.login}>
+          {!loggedIn ? (
+            <li className="li-item">
+              <Link to="/login" className="nav-item nav-link" >
                 Log In
-                  </button>
-            ) : (
-                <button className="btn" onClick={this.props.auth.logout}>
+              </Link>
+            </li>
+          ) : (
+              <li className="li-item" >
+
+                <span className="nav-item nav-link" onClick={this.props.auth.logout}>
                   Log Off
-                  </button>
-              )}
-          </li>
+                </span>
+              </li>
+            )}
+
         </ul>
       </nav>
     );

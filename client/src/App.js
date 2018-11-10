@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 import Callback from "./pages/Callback";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
+import Login from "./pages/Login";
 import './App.css';
 
 
@@ -16,12 +17,35 @@ const auth = new Auth();
 
 class App extends Component {
 
+  state = {
+    nav: false
+  }
+
+  constructor(props) {
+    super(props);
+    this.getScroll = this.getScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.getScroll);
+  }
+
+  getScroll() {
+    const scrolly = window.scrollY;
+
+    if (scrolly > 0) {
+      this.setState({ nav: true })
+    } else if (scrolly === 0) {
+      this.setState({ nav: false })
+    }
+  }
+
 
   render() {
     return (
       <Router history={history}>
         <div className="App">
-          <Nav auth={auth} />
+          <Nav auth={auth} nav={this.state.nav} />
 
           {/* <Route exact path="/" component={Home} /> */}
           <Route
@@ -29,6 +53,18 @@ class App extends Component {
             path="/"
             render={props => {
               return <Home auth={auth} {...props} />;
+            }}
+          />
+
+          <Route
+            exact
+            path="/login"
+            render={props => {
+              return auth.isAuthenticated() ? (
+                <Redirect to="/" />
+              ) : (
+                  <Login auth={auth} {...props} />
+                );
             }}
           />
 
@@ -43,7 +79,6 @@ class App extends Component {
                 );
             }}
           />
-
 
           <Route
             path="/admin"

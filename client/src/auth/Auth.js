@@ -15,7 +15,7 @@ export default class Auth {
     responseType: 'token id_token',
     scope: 'openid profile',
     audience: 'https://bookkeeping',
-    grant_type: 'https://surreality.auth0.com/co/authenticate'
+    grant_type: 'http://auth0.com/oauth/grant-type/password-realm'
   });
 
   userProfile;
